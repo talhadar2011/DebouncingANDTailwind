@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query"
 import { getAllCharaters } from "./API"
-import type { ApiResponse } from "../types/CharaterType"
 
 
 
-export function usegetAllCharater(){
+export function usegetAllCharater(name:any,setcalls:number){
     return useQuery({
-        queryKey:["AllCharaters"],
-        queryFn:getAllCharaters
+        queryKey:["AllCharaters",name],
+        queryFn:()=>getAllCharaters(name,setcalls)
     })
 }
